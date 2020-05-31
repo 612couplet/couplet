@@ -19,4 +19,4 @@ m = Model(
 
         restore_model=False)
 
-m.train(200)
+m.train(100000)
