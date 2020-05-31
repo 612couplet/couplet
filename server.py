@@ -21,7 +21,7 @@ m = Model(
     restore_model=True, init_train=False, init_infer=True)
 
 
-# 接收POST请求数据
+# 接收POST的请求数据
 def search_post(request):
     ctx = {}
     if request.POST:
