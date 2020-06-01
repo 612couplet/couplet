@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>one</title>
+    <style type="text/css">
+      {% load static %}
+        body{
+            background-image: url({% static 'mouse.jpg' %});
+            background-repeat:no-repeat;
+            background-size: cover;
+        }
+
+        p{
+            position:absolute;
+	        left:680px;
+	        top:80px;
+            padding: 15px 30px;
+            background-color:red;
+            font-size: 28px;
+            font-family: Hei;
+        }
+
+        .button1 {
+            background-color:darkred;
+            border: none;
+            color:white;
+            padding: 17px 38px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            position:absolute;
+            left: 370px;
+	        top:640px;
+
+        }
+
+         .button2 {
+            background-color:darkred;
+            border: none;
+            color:white;
+            padding: 17px 38px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            position:absolute;
+            left: 1040px;
+	        top:640px;
+        }
+
+        textarea{
+            padding: 60px 32px;
+            color: black;
+        }
+
+        .posleft{
+            position:absolute;
+	        left:400px;
+	        top:180px;
+        }
+
+        .posright{
+            position:absolute;
+	        left:1070px;
+	        top:180px;
+        }
+    </style>
+
+    <script>
+          function ClearTextArea()
+		  {
+
+		     document.getElementById("q").value="";
+             document.getElementById("q1").value="";
+		  }
+    </script>
+
+</head>
+
+<body>
+<p>作死小分队</p>
+<form action="/search-post" method="post">
+     {% csrf_token %}
+      <textarea id="q" name="q" style="width:30px;height:300px;font-size:22px;background-color:red;" maxlength="30" class="posleft">
+            {{rlt}}
+      </textarea>
+        <input type="submit" value="生 成 下 联" class="button1">
+</form>
+    <textarea id="q1" name="q1" style="width:30px;height:300px;font-size:22px;background-color:red;" maxlength="30" class="posright">
+        {{rlt1}}
+    </textarea>
+
+     <input type="button" onclick="ClearTextArea()" class="button2" value="清 除 数 据">
+
+</body>
+</html>
